@@ -25,9 +25,6 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('#gallery');
-galleryEl.style.listStyle = 'none';
-galleryEl.style.display = 'flex';
-galleryEl.style.justifyContent = 'space-around';
 
 const makeGalleryListEl = array => {
   const arrayItemListEl = [];
@@ -44,6 +41,11 @@ const makeGalleryListEl = array => {
     galleryItemImgEl.style.height = '300px';
 
     arrayItemListEl.push(galleryItemEl);
+
+    galleryEl.style.listStyle = 'none';
+    galleryEl.style.display = 'flex';
+    galleryEl.style.justifyContent = 'space-around';
+
   })
 
   return arrayItemListEl;
