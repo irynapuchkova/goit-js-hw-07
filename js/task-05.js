@@ -11,6 +11,7 @@ const nameEl = document.querySelector('#name-output');
 nameEl.textContent
 
 inputEl.addEventListener('input', (event) => {
-  inputEl.value !== null ? nameEl.textContent = inputEl.value : nameEl.textContent
+  event.currentTarget.value !== null ? nameEl.textContent = event.currentTarget.value : nameEl.textContent
 }
 );
+
