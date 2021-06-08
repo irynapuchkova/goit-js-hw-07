@@ -7,7 +7,8 @@
 //   data-length="6"
 //   placeholder="Введи 6 символов"
 // />
-// Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
+// Сколько символов должно быть в инпуте, 
+// указывается в его атрибуте data - length.
 // Если введено подходящее количество,
 // то border инпута становится зеленым, если неправильное - красным.
 // Для добавления стилей, используй CSS-классы valid и invalid.
@@ -23,3 +24,19 @@
 // #validation-input.invalid {
 //   border-color: #f44336;
 // }
+
+const inputEl = document.querySelector('input');
+console.log(inputEl);
+
+console.log(inputEl.value.length);
+
+inputEl.addEventListener('focus', onInputElFocus);
+
+function onInputElFocus(event) {
+  if (event.currentTarget.value.length < 6 || event.currentTarget.value.length > 6) {
+    event.currentTarget.classList.add('invalid')
+  } else {
+    event.currentTarget.classList.replace('invalid', 'valid')
+  }
+};
+
