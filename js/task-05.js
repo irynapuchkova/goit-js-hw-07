@@ -6,12 +6,15 @@
 // <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
 
 const inputEl = document.querySelector('input');
+// console.log(inputEl.value.length); 
 
-const nameEl = document.querySelector('#name-output');
-nameEl.textContent
+const outputEl = document.querySelector('#name-output');
+outputEl.textContent
 
 inputEl.addEventListener('input', (event) => {
-  event.currentTarget.value !== null ? nameEl.textContent = event.currentTarget.value : nameEl.textContent
+  event.currentTarget.value.length === -0 
+    ? outputEl.textContent = 'незнакомец'
+    : outputEl.textContent = event.currentTarget.value;
 }
 );
 
