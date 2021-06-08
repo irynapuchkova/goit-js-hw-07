@@ -27,8 +27,6 @@
 
 const inputEl = document.querySelector('input');
 
-console.log(inputEl.value.length);
-
 inputEl.addEventListener('blur', onInputElBlur);
 
 function onInputElBlur(event) {
