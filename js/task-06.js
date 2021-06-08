@@ -29,13 +29,12 @@ const inputEl = document.querySelector('input');
 
 console.log(inputEl.value.length);
 
-inputEl.addEventListener('focus', onInputElFocus);
+inputEl.addEventListener('blur', onInputElBlur);
 
-function onInputElFocus(event) {
+function onInputElBlur(event) {
   if (event.currentTarget.value.length < 6 || event.currentTarget.value.length > 6) {
     event.currentTarget.classList.add('invalid')
   } else {
     event.currentTarget.classList.replace('invalid', 'valid')
   }
 };
-
