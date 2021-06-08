@@ -25,32 +25,31 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('#gallery');
+galleryEl.style.listStyle = 'none';
+galleryEl.style.display = 'flex';
+galleryEl.style.justifyContent = 'space-around';
 
+const makeGalleryListEl = array => {
+  const arrayItemListEl = [];
 
-const makeGalleryEl = array => {
+  array.forEach(({url, alt}) => {
+    const galleryItemEl = document.createElement('li');
+  
+    galleryItemEl.insertAdjacentHTML('afterbegin', '<img>');
+    const galleryItemImgEl = galleryItemEl.querySelector('img');
 
-  array.forEach(image => {
-    galleryEl.insertAdjacentHTML('afterbegin', '<li></li>');
-    const galleryItemEl = galleryEl.querySelector('li');
-    const galleryItemImgEl = document.createElement('img');
-    galleryItemEl.append(galleryItemImgEl);
-
-    galleryItemImgEl.setAttribute('src', image.url);
-    galleryItemImgEl.setAttribute('alt', image.alt);
-    
-    galleryEl.style.listStyle = 'none';
-    galleryEl.style.display = 'flex';
-    galleryEl.style.justifyContent = 'space-around';
-
-
+    galleryItemImgEl.setAttribute('src', url);
+    galleryItemImgEl.setAttribute('alt', alt);
     galleryItemImgEl.style.width = '500';
     galleryItemImgEl.style.height = '300px';
+
+    arrayItemListEl.push(galleryItemEl);
   })
 
-  return galleryEl;
+  return arrayItemListEl;
 };
 
-console.log(makeGalleryEl(images));
+const galleryItemListEl = makeGalleryListEl(images);
+galleryEl.append(...galleryItemListEl);
 
-
-
+console.log(galleryEl);

@@ -14,19 +14,25 @@ const ingredients = [
   'Приправы',
 ];
 
-
 const ingredientsListEl = document.querySelector('#ingredients');
 
 const createIngredientsListEl = array => {
   let ingredientItemEl;
+  const ingredientsListEl = [];
 
   array.forEach(element => {
     ingredientItemEl = document.createElement('li');
-    ingredientItemEl.textContent = element;
-    ingredientsListEl.append(ingredientItemEl);
     ingredientItemEl.style.listStyle = 'none';
+
+    ingredientItemEl.textContent = element;
+
+    ingredientsListEl.push(ingredientItemEl);
   })
+
   return ingredientsListEl;
 }
 
-console.log(createIngredientsListEl(ingredients));
+const ingredientsEl = createIngredientsListEl(ingredients);
+ingredientsListEl.append(...ingredientsEl);
+
+console.log(ingredientsListEl);

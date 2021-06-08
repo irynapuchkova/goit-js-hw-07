@@ -17,6 +17,7 @@ console.log(`'В списке ${categoryItemsElAmount} категории.'`);
 // Например для первой категории получится:
 // Категория: Животные
 // Количество элементов: 4
+
 const spreadCategoryItemsEl = [...categoryItemsEl];
 
 const getTitleAndItemsAmount = array => {
