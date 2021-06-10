@@ -27,7 +27,6 @@
 
 const inputEl = document.querySelector('input');
 const validateNumLetters = Number(inputEl.dataset.length);
-console.log(validateNumLetters);
 
 inputEl.addEventListener('blur', onInputElBlur);
 
