@@ -26,11 +26,13 @@
 // }
 
 const inputEl = document.querySelector('input');
+const validateNumLetters = Number(inputEl.dataset.length);
+console.log(validateNumLetters);
 
 inputEl.addEventListener('blur', onInputElBlur);
 
 function onInputElBlur(event) {
-  if (event.currentTarget.value.length < 6 || event.currentTarget.value.length > 6) {
+  if (event.currentTarget.value.length !== validateNumLetters) {
     event.currentTarget.classList.add('invalid')
   } else {
     event.currentTarget.classList.replace('invalid', 'valid')

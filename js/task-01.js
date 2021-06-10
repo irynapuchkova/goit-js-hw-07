@@ -1,14 +1,13 @@
+// Напиши скрипт, который выполнит следующие операции.
+
 // Посчитает и выведет в консоль количество категорий в ul#categories,
 // то есть элементов li.item.
 // Получится 'В списке 3 категории.'.
 
 const categoryEl = document.querySelector('#categories');
-// console.log(category);
-const categoryItemsEl = categoryEl.children;
-// console.log(categoryItemsEl);
-const categoryItemsElAmount = categoryItemsEl.length;
+const categoryItemsAmount = categoryEl.children.length;
 
-console.log(`'В списке ${categoryItemsElAmount} категории.'`);
+console.log(`'В списке ${categoryItemsAmount} категории.'`);
 
 // Для каждого элемента li.item в списке ul#categories,
 // найдет и выведет в консоль текст заголовка элемента(тега h2)
@@ -18,20 +17,13 @@ console.log(`'В списке ${categoryItemsElAmount} категории.'`);
 // Категория: Животные
 // Количество элементов: 4
 
-const spreadCategoryItemsEl = [...categoryItemsEl];
+function getCategoryNameAndItemsElAmount(idx) {
+  const categoryName = categoryEl.children[`${idx}`].firstElementChild.textContent;
+  const categoryItemsElAmount = categoryEl.children[`${idx}`].lastElementChild.childElementCount;
 
-const getTitleAndItemsAmount = array => {
-  const messageEl = [];
-  let result;
-  
-  array.forEach(element => {
-    const titleEl = element.firstElementChild.textContent;
-    const itemsAmountEl = element.querySelectorAll('li').length;
-    messageEl.push(`Категория: ${titleEl}, Количество элементов: ${itemsAmountEl}`);
-    result = messageEl.join('; ');
-  })
-  
-  return result;
-};
+  console.log(`Категория: ${categoryName}, Количество элементов: ${categoryItemsElAmount}`)
+}
 
-console.log(getTitleAndItemsAmount(spreadCategoryItemsEl));
+getCategoryNameAndItemsElAmount(0);
+getCategoryNameAndItemsElAmount(1);
+getCategoryNameAndItemsElAmount(2);

@@ -12,7 +12,7 @@ const outputEl = document.querySelector('#name-output');
 outputEl.textContent
 
 inputEl.addEventListener('input', (event) => {
-  event.currentTarget.value.length === -0 
+  event.currentTarget.value.length === 0 
     ? outputEl.textContent = 'незнакомец'
     : outputEl.textContent = event.currentTarget.value;
 }

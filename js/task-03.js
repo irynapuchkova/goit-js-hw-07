@@ -29,29 +29,19 @@ const galleryEl = document.querySelector('#gallery');
 const makeGalleryListEl = array => {
   const arrayItemListEl = [];
 
-  array.forEach(({url, alt}) => {
-    const galleryItemEl = document.createElement('li');
-  
-    galleryItemEl.insertAdjacentHTML('afterbegin', '<img>');
-    const galleryItemImgEl = galleryItemEl.querySelector('img');
+  array.forEach(({ url, alt }) => {
+    const htmlStringGalleryItemEl = `<li><img src="${url}" alt="${alt}" width="500" height="300"></img></li>`;
 
-    galleryItemImgEl.setAttribute('src', url);
-    galleryItemImgEl.setAttribute('alt', alt);
-    galleryItemImgEl.style.width = '500';
-    galleryItemImgEl.style.height = '300px';
-
-    arrayItemListEl.push(galleryItemEl);
+    arrayItemListEl.push(htmlStringGalleryItemEl);
 
     galleryEl.style.listStyle = 'none';
     galleryEl.style.display = 'flex';
     galleryEl.style.justifyContent = 'space-around';
-
   })
 
   return arrayItemListEl;
 };
 
-const galleryItemListEl = makeGalleryListEl(images);
-galleryEl.append(...galleryItemListEl);
+const galleryItemListEl = makeGalleryListEl(images).join('');
 
-console.log(galleryEl);
+galleryEl.insertAdjacentHTML('afterbegin', galleryItemListEl);
